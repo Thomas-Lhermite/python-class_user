@@ -1,18 +1,39 @@
 class User:
+
+    def __init__(self, id, name, password):
+        self.__init__
+        self.name = name
+        self.password = password
+        self.id = id
     def check_password(self, password):
         return self.password == password
 
+class Admin(User):
+    def manage(self):
+        print(f"{self.name} est un administrateur !")
+
+class SuperAdmin(Admin):
+    def manage(self):
+        print(f"{self.name} est un super-administrateur !")
+
 #Création d'un objet de type User
 john = User()
+john.name = "John"
+kevin = Admin()
+kevin.name = "Kévin"
+didier = SuperAdmin()
+didier.name = "Didier"
+laurent = Admin()
+laurent.name = "Laurent"
+thomas = SuperAdmin()
+thomas.name = "Thomas"
 
-#Définition d'attribut pour cet objet
-john.id = 1
-john.name = 'John'
-john.password = '12345'
 
-print(f'Bonjour, je suis {john.name}.')
-print(f'Mon id est le {john.id}.')
-print(f'Mon mot de passe est {john.password}.')
 
-print(f'Vérification du mot de passe "1234" = {john.check_password("1234")}.')
-print(f'Vérification du mot de passe "12345" = {john.check_password("12345")}.')
+kevin.manage()
+didier.manage()
+laurent.manage()
+thomas.manage()
+
+
+
